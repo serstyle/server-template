@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  backend_api:
+    container_name: backend-template
+    build: ./
+    working_dir: /usr/src/backend-template
+    volumes: 
+      - ./:/usr/src/backend-template
+    environment:
+      POSTGRES_URI: postgres://francois:secret@postgres:5432/server-template-docker
+    ports:
+      - "3000:3000"
+    command: npm start
+  postgres:
+    build: ./postgres
+    environment:
+      POSTGRES_USER: francois
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: server-template-docker
+      POSTGRES_HOST: postgres
+    ports:
+      - "5432:5432"
