@@ -4,6 +4,13 @@ jobs:
     docker:
       - image: circleci/node:10.15.3 
     steps:
+      - run:
+      name: Start container and verify it is working
+      command: |
+        set -x
+        docker-compose up -d
+        docker run --network container:contacts \
+          appropriate/curl --retry 10 --retry-delay 1 --retry-connrefused http://localhost:8080/contacts/test
       - checkout
       - run: echo "installing and start"
       - run: npm install
