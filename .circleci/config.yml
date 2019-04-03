@@ -5,7 +5,7 @@ jobs:
       - image: circleci/node:10.15.3 
     steps:
       - checkout
-      - run: echo "installing"
+      - run: echo "installing and start"
       - run: npm install
       - run: npm start
 workflows:
