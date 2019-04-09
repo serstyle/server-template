@@ -2,6 +2,8 @@
 version: 2
 jobs:
   test:
+    docker:
+      - image: circleci/node:10.15.3
     steps:
       - checkout
       - run: echo "TEST"
