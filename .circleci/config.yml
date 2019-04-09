@@ -3,7 +3,7 @@ version: 2
 jobs:
   test:
     steps:
-      - chechout
+      - checkout
       - run: echo "TEST"
   # build:
   #   docker:
