@@ -1,23 +1,28 @@
-# #https://github.com/CircleCI-Public/circleci-demo-docker/blob/docker-compose/.circleci/config.yml to install dockercompose on circleci
-# version: 2
-# jobs:
-#   build:
-#     docker:
-#       - image: circleci/node:10.15.3 
-#     steps:
-#       - checkout
-#       - run:
-#           name: Start container and verify it is working
-#           command: |
-#             set -x
-#             docker-compose up -d
-#             docker run --network container:contacts \
-#               appropriate/curl --retry 10 --retry-delay 1 --retry-connrefused http://localhost:8080/contacts/test
-#       - run: echo "installing and start"
-#       - run: npm install
-#       - run: docker-compose up --build
-# workflows:
-#   version: 2
-#   build:
-#     jobs:
-#       - build
+#https://github.com/CircleCI-Public/circleci-demo-docker/blob/docker-compose/.circleci/config.yml to install dockercompose on circleci
+version: 2
+jobs:
+  test:
+    steps:
+      - chechout
+      - run: echo "TEST"
+  # build:
+  #   docker:
+  #     - image: circleci/node:10.15.3 
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: Start container and verify it is working
+  #         command: |
+  #           set -x
+  #           docker-compose up -d
+  #           docker run --network container:contacts \
+  #             appropriate/curl --retry 10 --retry-delay 1 --retry-connrefused http://localhost:8080/contacts/test
+  #     - run: echo "installing and start"
+  #     - run: npm install
+  #     - run: docker-compose up --build
+workflows:
+  version: 2
+  build:
+    jobs:
+      - test
+      # - build
