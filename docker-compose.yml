@@ -9,6 +9,7 @@ services:
       - ./:/usr/src/backend-template
     environment:
       POSTGRES_URI: postgres://francois:secret@postgres:5432/server-template-docker
+      REDIS_URI: redis://redis:6379
     ports:
       - "3000:3000"
     command: npm start
@@ -21,3 +22,7 @@ services:
       POSTGRES_HOST: postgres
     ports:
       - "5432:5432"
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
