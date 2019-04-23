@@ -2,13 +2,13 @@ version: '3.7'
 
 services:
   backend_api:
-    container_name: backend-template
+    container_name: backend-template # name need to be change
     build: ./
-    working_dir: /usr/src/backend-template
+    working_dir: /usr/src/backend-template # name need to be change
     volumes: 
-      - ./:/usr/src/backend-template
+      - ./:/usr/src/backend-template # name need to be change
     environment:
-      POSTGRES_URI: postgres://francois:secret@postgres:5432/server-template-docker
+      POSTGRES_URI: postgres://francois:secret@postgres:5432/server-template-docker # name need to be change
       REDIS_URI: redis://redis:6379
     ports:
       - "3000:3000"
@@ -18,7 +18,7 @@ services:
     environment:
       POSTGRES_USER: francois
       POSTGRES_PASSWORD: secret
-      POSTGRES_DB: server-template-docker
+      POSTGRES_DB: server-template-docker # name need to be change
       POSTGRES_HOST: postgres
     ports:
       - "5432:5432"

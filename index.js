@@ -49,19 +49,6 @@ app.post('/profile', auth.requireAuth, (req, res) => {
     }) 
 });
 
-// function verifyToken(req, res, next){
-//     const barearHeader = req.headers['authorization'];
-//     if(barearHeader){
-//         const barear = barearHeader.split(' ');
-//         const barearToken = barear[1];
-//         req.token = barearToken;
-//         next();
-//     }
-//     else{
-//         res.status(403).send('not good')
-//     }
-// }
-
 app.listen(3000, ()=>{
     console.log('server on 3000');
 });
