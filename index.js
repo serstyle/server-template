@@ -65,6 +65,6 @@ app.post('/profile', auth.requireAuth, (req, res) => {
     }) 
 });
 
-app.listen(3000 || process.env.PORT, ()=>{
+app.listen(process.env.PORT || 3000, ()=>{
     console.log('server on 3000');
 });
