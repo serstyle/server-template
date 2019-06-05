@@ -1,14 +1,14 @@
 version: '3.7'
 
 services:
-  backend_api:
-    container_name: backend-template # name need to be change
+  best4cast-api:
+    container_name: best4cast-api
     build: ./
-    working_dir: /usr/src/backend-template # name need to be change
+    working_dir: /usr/src/best4cast-api
     volumes: 
-      - ./:/usr/src/backend-template # name need to be change
+      - ./:/usr/src/best4cast-api
     environment:
-      POSTGRES_URI: postgres://francois:secret@postgres:5432/server-template-docker # name need to be change
+      POSTGRES_URI: postgres://ser:ser@postgres:5432/best4cast-api-docker
       REDIS_URI: redis://redis:6379
     ports:
       - "3000:3000"
@@ -16,9 +16,9 @@ services:
   postgres:
     build: ./postgres
     environment:
-      POSTGRES_USER: francois
-      POSTGRES_PASSWORD: secret
-      POSTGRES_DB: server-template-docker # name need to be change
+      POSTGRES_USER: ser
+      POSTGRES_PASSWORD: ser
+      POSTGRES_DB: best4cast-api-docker
       POSTGRES_HOST: postgres
     ports:
       - "5432:5432"

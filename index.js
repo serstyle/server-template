@@ -11,6 +11,7 @@ const signin = require('./controllers/signin');
 const register = require('./controllers/register');
 const auth = require('./controllers/authorization');
 const signout = require('./controllers/signout');
+const games = require('./controllers/games');
 
 const app = express()
 
@@ -30,6 +31,9 @@ app.get('/', (req,res)=>{
 app.post('/signin', (req, res) => { signin.signinAuthentication(req, res, db, bcrypt)});
 app.post('/register', (req, res) => { register.registerAuthentication(req, res, db, bcrypt)});
 app.post('/signout', auth.requireAuth, (req, res) => { signout.handleSignout(req, res)});
+
+app.post('/gotd', (req, res) => { games.addGames(req, res, db)});
+app.get('/gotd', (req, res) => { games.getGames(req, res, db)});
 
 app.post('/profile', auth.requireAuth, (req, res) => { 
     // use redis verify the token and also jwt.verify  
